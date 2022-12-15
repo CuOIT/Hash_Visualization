@@ -20,7 +20,7 @@ public class App extends JPanel{
 	public JPanel p;
 	public int speed;
 	public App() {
-		this.setBackground(new Color(192, 238, 228));
+		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
 		this.setFocusable(true);
 		newHash(20,hashTable.CHAINING_TABLE,hashTable.DIVISION_METHOD);
@@ -31,7 +31,7 @@ public class App extends JPanel{
 	public void addComponents() {
 		p=new JPanel();
 		p.setLayout(new GridLayout(3,4,4,20));
-		p.setBackground(new Color(192, 238, 228));
+		p.setBackground(Color.BLACK);
 		p.setSize(new Dimension(0,0));
 		JComboBox comboBox=new JComboBox();
 		comboBox.addItem("Chaining");
@@ -51,23 +51,22 @@ public class App extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(sizeBox.getText()!="") {
-				int size=Integer.parseInt(sizeBox.getText());
-				if(comboBox.getSelectedItem().toString()=="Linear probe table")
-					hashTable.hashTableType=hashTable.LINEAR_PROBE_TABLE;
+					int size=Integer.parseInt(sizeBox.getText());
+					if(comboBox.getSelectedItem().toString()=="Linear probe table")
+						hashTable.hashTableType=hashTable.LINEAR_PROBE_TABLE;
 					else if(comboBox.getSelectedItem().toString()=="Quadratic probe table")
-					hashTable.hashTableType=hashTable.QUADRA_PROBE_TABLE;
+						hashTable.hashTableType=hashTable.QUADRA_PROBE_TABLE;
 					else if(comboBox.getSelectedItem().toString()=="Double hash table")
-					hashTable.hashTableType=hashTable.DOUBLE_HASH_TABLE;
+						hashTable.hashTableType=hashTable.DOUBLE_HASH_TABLE;
 					else if(comboBox.getSelectedItem().toString()=="Chaining")
-					hashTable.hashTableType=hashTable.CHAINING_TABLE;
-				if(comboBox2.getSelectedItem().toString()=="Multiplication method")
-					hashTable.hashFunctionType=hashTable.MULTI_METHOD;
-				else if(comboBox2.getSelectedItem().toString()=="Universal hashing")
+						hashTable.hashTableType=hashTable.CHAINING_TABLE;
+					if(comboBox2.getSelectedItem().toString()=="Multiplication method")
+						hashTable.hashFunctionType=hashTable.MULTI_METHOD;
+					else if(comboBox2.getSelectedItem().toString()=="Universal hashing")
 						hashTable.hashFunctionType=hashTable.UNIVERSAL_HASHING;
-			
 				newHash(size,hashTable.hashTableType,hashTable.hashFunctionType);
 				}
-				else newHash(20,hashTable.CHAINING_TABLE,hashTable.DIVISION_METHOD);
+				else newHash(10,hashTable.hashTableType,hashTable.hashFunctionType);
 			}
 		});
 		p.add(newButton);
@@ -82,7 +81,7 @@ public class App extends JPanel{
 						hashTable.action=hashTable.INSERT;
 						hashTable.selectedBucket.value=value;
 				}
-				}
+			}
 		});
 		p.add(insertButton);
 		JButton delButton= new JButton("Delete");
@@ -92,8 +91,7 @@ public class App extends JPanel{
 					int value=Integer.parseInt(box.getText());	
 					hashTable.selectedBucket.value=value;
 					hashTable.action=hashTable.DELETE;
-				}
-				
+				}	
 			}
 		});
 		p.add(delButton);
@@ -124,7 +122,6 @@ public class App extends JPanel{
 			}
 		});
 		p.add(stopButton);
-		
 		JButton speedButton= new JButton("Speed up");
 		speedButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
