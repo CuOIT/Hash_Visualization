@@ -6,7 +6,7 @@ import	javax.swing.JFrame;
 public class Main {
 	public static JFrame window;
 	public final static int SCREEN_WIDTH=1600;
-	public final static int SCREEN_HEIGHT=900;
+	public final static int SCREEN_HEIGHT=1000;
 	public static void main(String[] args) {
 	window=new JFrame();
 	window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

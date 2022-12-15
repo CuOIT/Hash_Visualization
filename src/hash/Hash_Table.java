@@ -224,6 +224,7 @@ public class Hash_Table {
 				{
 					iterator=0;
 					action=0;
+					cBucket.value=0;
 					message="Not found!";
 					return;
 				}
@@ -248,6 +249,7 @@ public class Hash_Table {
                 x1 + (int) (headLength * Math.cos(angle - offs)) };
         int[] ys = { y1 + (int) (headLength * Math.sin(angle + offs)), y1,
                 y1 + (int) (headLength * Math.sin(angle - offs)) };
+        g.setColor(Color.orange);
         g.drawLine(x0, y0, x1, y1);
         g.drawPolyline(xs, ys, 3);
 	}

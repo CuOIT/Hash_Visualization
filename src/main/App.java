@@ -110,7 +110,7 @@ public class App extends JPanel{
 		randInsert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				hashTable.action=hashTable.RANDOM_INSERT;
-				hashTable.randomInsertCount=50;
+				hashTable.randomInsertCount=15;
 			}
 		});
 		p.add(randInsert);		
